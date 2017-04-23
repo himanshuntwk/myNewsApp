@@ -1,0 +1,24 @@
+.nav,.navbar,.navbar-collapse,.navbar-header,.container-fluid {
+  background-color: #009933;
+  border-color: #009933;
+}
+
+
+.navigationLink {
+  color: white;
+  font-weight:bold;
+
+}
+
+.thumbnail{
+  float: left;
+  width:250px;
+  height:100px;
+  margin-left: 10px;
+  margin-right: 10px;
+  }
+
+.footerDiv {
+  float: inherit;
+  clear: left;
+  }

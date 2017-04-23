@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="myNews.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-resource.js"></script>
+  <script src="newsApp.js"></script>
+</head>
+<body ng-app="newsApp" ng-controller="newsController">
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="collapse navbar-collapse" id="myNavbar" ng-init="callService()">
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href="#"><span class="glyphicon glyphicon-home navigationLink" ng-click="callNewsAPI('home')"></span></a></li>
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li><a href="#" ng-click="callNewsAPI('general')"><span class="navigationLink">GENERAL</span></a></li>
+        <li><a href="#" ng-click="callNewsAPI('business')"><span class="navigationLink">BUSINESS</span></a></li>
+        <li><a href="#" ng-click="callNewsAPI('science-and-nature')"><span class="navigationLink">SCIENCE AND NATURE</span></a></li>
+        <li><a href="#" ng-click="callNewsAPI('technology')"><span class="navigationLink">TECHNOLOGY</span></a></li>
+        <li><a href="#" ng-click="callNewsAPI('gaming')"><span class="navigationLink">GAMING</span></a></li>
+        <li><a href="#" ng-click="callNewsAPI('music')"><span class="navigationLink">MUSIC</span></a></li>
+        <li><a href="#" ng-click="callNewsAPI('sport')"><span class="navigationLink">SPORTS</span></a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="navigationLink">HIMANSHU</span></a></li>
+        <li><a href="#"><span class="navigationLink">LOG OUT</span></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<center>
+  <h1>{{heading}}</h1>
+  <hr/>
+</center>
+<div ui-if="!sources.length">
+  <div ng-repeat="source in sources">
+    <a href="{{source.url}}" target="_blank"><img class="thumbnail" src="{{source.urlsToLogos.large}}" /></a>
+  </div>
+</div>
+<div class="footerDiv">
+  <hr/>
+  <center>
+      Powered By <a href="https://newsapi.org/" target="_blank">NewsAPI.org</a>
+  </center>
+</div>
+</body>
+</html>
